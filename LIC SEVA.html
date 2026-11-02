@@ -1,0 +1,1450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Family Protection & Life Insurance</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f7f3e8;
+      color: #183b2b;
+      line-height: 1.6;
+    }
+
+    /* NAVBAR */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #ffffff;
+      box-shadow: 0 3px 15px rgba(0,0,0,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 6%;
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .lic-logo {
+      width: 65px;
+      height: 65px;
+      object-fit: contain;
+    }
+
+    .brand {
+      font-weight: bold;
+      color: #123f2a;
+      font-size: 18px;
+    }
+
+    .brand small {
+      display: block;
+      color: #b48a28;
+      font-size: 12px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 22px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #183b2b;
+      font-weight: bold;
+    }
+
+    nav ul li a:hover {
+      color: #b48a28;
+    }
+
+
+    /* =====================================================
+       HOME PAGE
+       Existing family background is NOT removed.
+       Owner photo is added as an additional background layer.
+       ===================================================== */
+
+    .hero {
+      min-height: 88vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 50px 7%;
+      overflow: hidden;
+
+      background:
+        linear-gradient(
+          rgba(245,242,226,0.80),
+          rgba(245,242,226,0.88)
+        ),
+        url("https://images.pexels.com/photos/8307727/pexels-photo-8307727.jpeg?auto=compress&cs=tinysrgb&w=1200")
+        center/cover;
+    }
+
+
+    /* OWNER PHOTO - HOME BACKGROUND ONLY */
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: 2%;
+      bottom: 0;
+      width: 430px;
+      height: 520px;
+
+      background:
+        linear-gradient(
+          to bottom,
+          rgba(247,243,232,0.05),
+          rgba(247,243,232,0.15)
+        ),
+        url("garika-murali-mohan.jpg")
+        center center / cover no-repeat;
+
+      opacity: 0.32;
+
+      border-radius: 220px 220px 0 0;
+
+      box-shadow:
+        0 0 40px rgba(0,0,0,0.12);
+
+      z-index: 0;
+    }
+
+
+    .hero-content {
+      max-width: 1100px;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 45px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-text {
+      position: relative;
+      z-index: 3;
+    }
+
+    .hero-text h1 {
+      font-size: 50px;
+      line-height: 1.1;
+      color: #123f2a;
+      margin-bottom: 20px;
+    }
+
+    .hero-text h1 span {
+      color: #b48a28;
+    }
+
+    .hero-text p {
+      font-size: 19px;
+      margin-bottom: 25px;
+      color: #405548;
+    }
+
+    .hero-logo {
+      width: 120px;
+      margin-bottom: 15px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 14px 22px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background: #123f2a;
+      color: white;
+    }
+
+    .btn-gold {
+      background: #c49a38;
+      color: white;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .contact-name {
+      margin-top: 18px;
+      font-weight: bold;
+      color: #123f2a;
+      font-size: 17px;
+    }
+
+
+    /* HERO FAMILY PHOTO - UNCHANGED */
+    .hero-photo {
+      background: white;
+      padding: 12px;
+      border-radius: 25px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.18);
+      transform: rotate(2deg);
+      position: relative;
+      z-index: 3;
+    }
+
+    .hero-photo img {
+      width: 100%;
+      height: 430px;
+      object-fit: cover;
+      border-radius: 18px;
+    }
+
+
+    /* SECTIONS */
+    section {
+      padding: 80px 7%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title img {
+      width: 75px;
+      margin-bottom: 10px;
+    }
+
+    .section-title h2 {
+      font-size: 36px;
+      color: #123f2a;
+    }
+
+    .section-title p {
+      color: #65756b;
+      max-width: 700px;
+      margin: 10px auto;
+    }
+
+
+    /* PHOTO CARDS */
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .photo-card {
+      background: white;
+      padding: 10px;
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+      transition: 0.3s;
+    }
+
+    .photo-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .photo-card img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      border-radius: 15px;
+    }
+
+    .photo-card h3 {
+      padding: 14px 10px 3px;
+      color: #123f2a;
+    }
+
+    .photo-card p {
+      padding: 0 10px 15px;
+      color: #69766e;
+    }
+
+
+    /* FAMILY INTRO */
+    .family-intro {
+      max-width: 1050px;
+      margin: auto;
+      background: white;
+      border-radius: 25px;
+      padding: 45px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.10);
+      text-align: center;
+    }
+
+    .family-intro h2 {
+      color: #123f2a;
+      margin-bottom: 15px;
+      font-size: 32px;
+    }
+
+    .family-intro p {
+      color: #5d6d63;
+      font-size: 18px;
+    }
+
+
+    /* FEATURE */
+    .feature {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 45px;
+      align-items: center;
+      max-width: 1150px;
+      margin: auto;
+    }
+
+    .feature-image {
+      background: white;
+      padding: 10px;
+      border-radius: 25px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.13);
+    }
+
+    .feature-image img {
+      width: 100%;
+      height: 450px;
+      object-fit: cover;
+      border-radius: 18px;
+    }
+
+    .feature-text h2 {
+      font-size: 38px;
+      color: #123f2a;
+      margin-bottom: 15px;
+    }
+
+    .feature-text p {
+      color: #5c6d62;
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    .feature-list {
+      list-style: none;
+    }
+
+    .feature-list li {
+      margin: 12px 0;
+      font-weight: bold;
+    }
+
+    .feature-list li::before {
+      content: "✓";
+      color: #b48a28;
+      margin-right: 10px;
+      font-size: 20px;
+    }
+
+
+    /* CONTACT */
+    .contact-section {
+      background: #e9e2cd;
+    }
+
+    .contact-container {
+      max-width: 1000px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 35px;
+    }
+
+    .contact-card,
+    .form-card {
+      background: white;
+      padding: 35px;
+      border-radius: 25px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.10);
+    }
+
+    .contact-card h2,
+    .form-card h2 {
+      color: #123f2a;
+      margin-bottom: 18px;
+    }
+
+    .contact-line {
+      margin: 18px 0;
+      font-size: 17px;
+    }
+
+    .contact-line strong {
+      color: #123f2a;
+    }
+
+    form input,
+    form textarea,
+    form select {
+      width: 100%;
+      padding: 13px;
+      margin: 8px 0;
+      border: 1px solid #ccd4cd;
+      border-radius: 10px;
+      font-size: 15px;
+    }
+
+    form textarea {
+      height: 120px;
+      resize: vertical;
+    }
+
+    form button {
+      width: 100%;
+      border: none;
+      padding: 14px;
+      border-radius: 25px;
+      background: #123f2a;
+      color: white;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 8px;
+    }
+
+    form button:hover {
+      background: #b48a28;
+    }
+
+
+    /* FOOTER */
+    footer {
+      background: #123f2a;
+      color: white;
+      padding: 45px 7%;
+      text-align: center;
+    }
+
+    .footer-logo {
+      width: 90px;
+      margin-bottom: 15px;
+    }
+
+    footer h3 {
+      margin-bottom: 10px;
+    }
+
+    footer p {
+      color: #d9e2dc;
+      margin: 7px 0;
+    }
+
+    .footer-name {
+      font-size: 18px;
+      font-weight: bold;
+      color: #f0d58a;
+      margin: 15px 0;
+    }
+
+    .disclaimer {
+      max-width: 850px;
+      margin: 20px auto 0;
+      font-size: 12px;
+      color: #c9d3cd;
+    }
+
+
+    /* FLOATING BUTTONS */
+    .floating-buttons {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .floating-buttons a {
+      padding: 13px 18px;
+      border-radius: 30px;
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      box-shadow: 0 5px 18px rgba(0,0,0,0.2);
+    }
+
+    .call {
+      background: #123f2a;
+    }
+
+    .whatsapp {
+      background: #198754;
+    }
+
+
+    /* RESPONSIVE */
+    @media(max-width: 850px) {
+
+      .hero-content,
+      .feature,
+      .contact-container {
+        grid-template-columns: 1fr;
+      }
+
+      .photo-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      nav ul {
+        display: none;
+      }
+
+      .hero-text h1 {
+        font-size: 38px;
+      }
+
+      /* Owner background photo becomes smaller on mobile */
+      .hero::after {
+        width: 280px;
+        height: 360px;
+        right: -50px;
+        opacity: 0.20;
+      }
+    }
+
+
+    @media(max-width: 550px) {
+
+      .photo-grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 60px 5%;
+      }
+
+      .hero {
+        padding: 40px 5%;
+      }
+
+      .hero-photo img {
+        height: 320px;
+      }
+
+      .hero::after {
+        width: 220px;
+        height: 290px;
+        right: -60px;
+        opacity: 0.16;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+
+  <!-- =====================================================
+       NAVBAR
+       ===================================================== -->
+
+  <nav>
+
+    <div class="logo-area">
+
+      <!-- LIC LOGO -->
+      <img
+        class="lic-logo"
+        src="https://upload.wikimedia.org/wikipedia/en/2/28/LIC_Logo.svg"
+        alt="LIC Logo"
+      >
+
+      <div class="brand">
+        FAMILY PROTECTION
+        <small>Life Insurance Information</small>
+      </div>
+
+    </div>
+
+
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#family">Family</a></li>
+      <li><a href="#photos">Photos</a></li>
+      <li><a href="#protection">Protection</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+  </nav>
+
+
+
+  <!-- =====================================================
+       HOME
+       ===================================================== -->
+
+  <section class="hero" id="home">
+
+    <div class="hero-content">
+
+      <div class="hero-text">
+
+        <!-- LIC LOGO -->
+        <img
+          class="hero-logo"
+          src="https://upload.wikimedia.org/wikipedia/en/2/28/LIC_Logo.svg"
+          alt="LIC Logo"
+        >
+
+
+        <h1>
+          Protect Your
+          <span>Family's Future</span>
+        </h1>
+
+
+        <p>
+          Life is beautiful when your family is protected.
+          Plan today for the people who matter most tomorrow.
+        </p>
+
+
+        <div class="buttons">
+
+          <a
+            href="tel:9849400640"
+            class="btn btn-primary"
+          >
+            Call 9849400640
+          </a>
+
+
+          <a
+            href="https://wa.me/919849400640"
+            class="btn btn-gold"
+            target="_blank"
+          >
+            WhatsApp Enquiry
+          </a>
+
+        </div>
+
+
+        <!-- OWNER NAME -->
+        <div class="contact-name">
+          9849400640 – GARIKA MURALI MOHAN- MA . MBA
+        </div>
+
+
+        <div class="contact-name">
+          7995680405
+        </div>
+
+      </div>
+
+
+
+      <!-- EXISTING FAMILY PHOTO - UNCHANGED -->
+      <div class="hero-photo">
+
+        <img
+          src="https://images.pexels.com/photos/8307727/pexels-photo-8307727.jpeg?auto=compress&cs=tinysrgb&w=1200"
+          alt="Children playing with grandparents"
+        >
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       FAMILY INTRO
+       ===================================================== -->
+
+  <section id="family">
+
+    <div class="section-title">
+
+      <img
+        src="https://upload.wikimedia.org/wikipedia/en/2/28/LIC_Logo.svg"
+        alt="LIC Logo"
+      >
+
+      <h2>
+        For Every Generation of Your Family
+      </h2>
+
+      <p>
+        A secure future means giving every generation
+        the freedom to live, dream and enjoy life together.
+      </p>
+
+    </div>
+
+
+    <div class="family-intro">
+
+      <h2>
+        Grandparents • Parents • Children
+      </h2>
+
+      <p>
+        From a grandfather's loving smile to children's happy laughter,
+        every family moment is precious. Financial protection can help
+        you prepare for tomorrow while enjoying today.
+      </p>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       PHOTO GALLERY
+       ALL ORIGINAL PHOTOS KEPT
+       ===================================================== -->
+
+  <section id="photos">
+
+    <div class="section-title">
+
+      <img
+        src="https://upload.wikimedia.org/wikipedia/en/2/28/LIC_Logo.svg"
+        alt="LIC Logo"
+      >
+
+      <h2>
+        Beautiful Family Moments
+      </h2>
+
+      <p>
+        Because the best memories are the ones shared together.
+      </p>
+
+    </div>
+
+
+    <div class="photo-grid">
+
+
+      <div class="photo-card">
+
+        <img
+          src="https://images.pexels.com/photos/8307727/pexels-photo-8307727.jpeg?auto=compress&cs=tinysrgb&w=1200"
+          alt="Children playing with grandparents"
+        >
+
+        <h3>
+          Grandparents & Grandchildren
+        </h3>
+
+        <p>
+          Happy moments filled with love, laughter and togetherness.
+        </p>
+
+      </div>
+
+
+
+      <div class="photo-card">
+
+        <img
+          src="https://images.pexels.com/photos/6972783/pexels-photo-6972783.jpeg?auto=compress&cs=tinysrgb&w=900"
+          alt="Child playing with grandfather"
+        >
+
+        <h3>
+          Grandfather & Child
+        </h3>
+
+        <p>
+          The special bond between a grandparent and a child.
+        </p>
+
+      </div>
+
+
+
+      <div class="photo-card">
+
+        <img
+          src="https://images.pexels.com/photos/7854077/pexels-photo-7854077.jpeg?auto=compress&cs=tinysrgb&w=900"
+          alt="Children playing soccer with grandfather"
+        >
+
+        <h3>
+          Playing Together
+        </h3>
+
+        <p>
+          Keeping family relationships strong through simple moments.
+        </p>
+
+      </div>
+
+
+
+      <div class="photo-card">
+
+        <img
+          src="https://images.pexels.com/photos/8185855/pexels-photo-8185855.jpeg?auto=compress&cs=tinysrgb&w=1200"
+          alt="Grandfather and children playing"
+        >
+
+        <h3>
+          Fun Across Generations
+        </h3>
+
+        <p>
+          Every generation has a story to share.
+        </p>
+
+      </div>
+
+
+
+      <div class="photo-card">
+
+        <img
+          src="https://images.pexels.com/photos/7322368/pexels-photo-7322368.jpeg?auto=compress&cs=tinysrgb&w=1000"
+          alt="Grandfather father and son"
+        >
+
+        <h3>
+          Three Generations
+        </h3>
+
+        <p>
+          Grandfather, father and son creating memories together.
+        </p>
+
+      </div>
+
+
+
+      <div class="photo-card">
+
+        <img
+          src="https://images.pexels.com/photos/7854119/pexels-photo-7854119.jpeg?auto=compress&cs=tinysrgb&w=1000"
+          alt="Grandfather with grandchildren"
+        >
+
+        <h3>
+          Family Happiness
+        </h3>
+
+        <p>
+          The warmth of family is something worth protecting.
+        </p>
+
+      </div>
+
+
+
+      <div class="photo-card">
+
+        <img
+          src="https://images.pexels.com/photos/7322456/pexels-photo-7322456.jpeg?auto=compress&cs=tinysrgb&w=1000"
+          alt="Grandfather father and son playing"
+        >
+
+        <h3>
+          Father & Grandfather
+        </h3>
+
+        <p>
+          Family time brings generations closer together.
+        </p>
+
+      </div>
+
+
+
+      <div class="photo-card">
+
+        <img
+          src="https://images.pexels.com/photos/8307628/pexels-photo-8307628.jpeg?auto=compress&cs=tinysrgb&w=1000"
+          alt="Grandfather and children"
+        >
+
+        <h3>
+          Childhood Memories
+        </h3>
+
+        <p>
+          Giving children beautiful memories to carry forward.
+        </p>
+
+      </div>
+
+
+
+      <div class="photo-card">
+
+        <img
+          src="https://images.pexels.com/photos/7854096/pexels-photo-7854096.jpeg?auto=compress&cs=tinysrgb&w=800"
+          alt="Grandfather with children in park"
+        >
+
+        <h3>
+          Family Adventures
+        </h3>
+
+        <p>
+          Enjoying the outdoors with the people we love.
+        </p>
+
+      </div>
+
+
+
+    
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       GRANDFATHER FEATURE
+       ===================================================== -->
+
+  <section id="protection">
+
+    <div class="feature">
+
+
+      <div class="feature-image">
+
+        <img
+          src="c:\Users\user\AppData\Local\Packages\5319275A.WhatsAppDesktop_cv1g1gvanyjgm\LocalState\sessions\628F06DE4F9FDEFE6449D259CF1F67EB797300B3\transfers\2026-37\WhatsApp Image 2026-09-13 at 12.28.17 PM.jpeg"
+          alt="Grandfather father and son together"
+        >
+
+      </div>
+
+
+
+      <div class="feature-text">
+
+        <img
+          class="lic-logo"
+          src=""
+          alt="LIC Logo"
+        >
+
+        <h2>
+          Protect the People You Love
+        </h2>
+
+        <p>
+          A family's needs change through every stage of life.
+          Thoughtful financial planning can help provide confidence
+          for the years ahead.
+        </p>
+
+
+        <ul class="feature-list">
+
+          <li>
+            Family financial protection
+          </li>
+
+          <li>
+            Future planning
+          </li>
+
+          <li>
+            Children's dreams
+          </li>
+
+          <li>
+            Long-term financial security
+          </li>
+
+          <li>
+            Peace of mind for loved ones
+          </li>
+
+        </ul>
+
+
+        <div class="contact-name">
+          9849400640 – GARIKA MURALI MOHAN- MA . MBA
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       THREE GENERATIONS
+       ===================================================== -->
+
+  <section>
+
+    <div class="section-title">
+
+      <img
+        src=""
+        alt="LIC Logo"
+      >
+
+      <h2>
+        Three Generations, One Family
+      </h2>
+
+      <p>
+        Grandparents, parents and children —
+        each generation deserves care and protection.
+      </p>
+
+    </div>
+
+
+    <div class="feature">
+
+
+      <div class="feature-text">
+
+        <h2>
+          Build a Secure Tomorrow
+        </h2>
+
+        <p>
+          Your family is your greatest responsibility and your greatest joy.
+          Financial planning today can help you prepare for important
+          milestones tomorrow.
+        </p>
+
+
+        <div class="contact-name">
+          9849400640 – GARIKA MURALI MOHAN- MA . MBA
+        </div>
+
+
+        <div class="contact-name">
+          7995680405
+        </div>
+
+      </div>
+
+
+
+      <div class="feature-image">
+
+        <img
+          src="c:\Users\user\AppData\Local\Packages\5319275A.WhatsAppDesktop_cv1g1gvanyjgm\LocalState\sessions\628F06DE4F9FDEFE6449D259CF1F67EB797300B3\transfers\2026-37\WhatsApp Image 2026-09-13 at 12.28.17 PM.jpeg"
+          alt="Grandfather father and son playing together"
+        >
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       CONTACT
+       ===================================================== -->
+
+  <section class="contact-section" id="contact">
+
+    <div class="section-title">
+
+      <img
+        src="https://upload.wikimedia.org/wikipedia/en/2/28/LIC_Logo.svg"
+        alt="LIC Logo"
+      >
+
+      <h2>
+        Talk About Your Family's Future
+      </h2>
+
+      <p>
+        Have a question? Send an enquiry and we will get in touch.
+      </p>
+
+    </div>
+
+
+
+    <div class="contact-container">
+
+
+      <div class="contact-card">
+
+        <img
+          class="lic-logo"
+          src="https://upload.wikimedia.org/wikipedia/en/2/28/LIC_Logo.svg"
+          alt="LIC Logo"
+        >
+
+        <h2>
+          Contact Details
+        </h2>
+
+
+        <div class="contact-line">
+
+          <strong>
+            Phone:
+          </strong>
+
+          <br>
+
+          <a href="tel:9849400640">
+            9849400640
+          </a>
+
+        </div>
+
+
+        <div class="contact-line">
+
+          <strong>
+            Name:
+          </strong>
+
+          <br>
+
+          GARIKA MURALI MOHAN- MA . MBA
+
+        </div>
+
+
+        <div class="contact-line">
+
+          <strong>
+            Alternate Phone:
+          </strong>
+
+          <br>
+
+          <a href="tel:7995680405">
+            7995680405
+          </a>
+
+        </div>
+
+
+        <div class="contact-line">
+
+          <strong>
+            WhatsApp:
+          </strong>
+
+          <br>
+
+          <a
+            href="https://wa.me/919849400640"
+            target="_blank"
+          >
+            Send WhatsApp Enquiry
+          </a>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="form-card">
+
+        <h2>
+          Enquiry Form
+        </h2>
+
+
+        <form id="enquiryForm">
+
+          <input
+            type="text"
+            id="name"
+            placeholder="Your Name"
+            required
+          >
+
+
+          <input
+            type="tel"
+            id="phone"
+            placeholder="Your Phone Number"
+            required
+          >
+
+
+          <select
+            id="interest"
+            required
+          >
+
+            <option value="">
+              Select Your Requirement
+            </option>
+
+            <option>
+              Family Protection
+            </option>
+
+            <option>
+              Child Future Planning
+            </option>
+
+            <option>
+              Life Insurance Information
+            </option>
+
+            <option>
+              Financial Planning
+            </option>
+
+            <option>
+              Other Enquiry
+            </option>
+
+          </select>
+
+
+          <textarea
+            id="message"
+            placeholder="Your Message"
+          ></textarea>
+
+
+          <button type="submit">
+            SEND ENQUIRY
+          </button>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       FOOTER
+       ===================================================== -->
+
+  <footer>
+
+    <img
+      class="footer-logo"
+      src="https://upload.wikimedia.org/wikipedia/en/2/28/LIC_Logo.svg"
+      alt="LIC Logo"
+    >
+
+
+    <h3>
+      Family Protection & Financial Planning
+    </h3>
+
+
+    <div class="footer-name">
+      9849400640 – GARIKA MURALI MOHAN- MA . MBA
+    </div>
+
+
+    <p>
+      Phone: 9849400640
+    </p>
+
+
+    <p>
+      Alternate: 7995680405
+    </p>
+
+
+    <p>
+      WhatsApp: 9849400640
+    </p>
+
+
+    <p class="disclaimer">
+
+      This is an independently designed informational website and is not
+      the official website of Life Insurance Corporation of India (LIC).
+      LIC is a registered trademark of Life Insurance Corporation of India.
+      Please verify all policy information, terms and conditions with
+      authorized LIC sources before making any financial decision.
+
+    </p>
+
+
+    <p style="margin-top:20px;">
+      © 2026 Family Protection. All Rights Reserved.
+    </p>
+
+  </footer>
+
+
+
+  <!-- =====================================================
+       FLOATING BUTTONS
+       ===================================================== -->
+
+  <div class="floating-buttons">
+
+    <a
+      class="call"
+      href="tel:9849400640"
+    >
+      📞 9849400640
+    </a>
+
+
+    <a
+      class="whatsapp"
+      href="https://wa.me/919849400640"
+      target="_blank"
+    >
+      💬 WhatsApp
+    </a>
+
+  </div>
+
+
+
+  <!-- =====================================================
+       JAVASCRIPT
+       ===================================================== -->
+
+  <script>
+
+    /* Browser notification */
+
+    window.addEventListener("load", function () {
+
+      if ("Notification" in window) {
+
+        if (Notification.permission === "default") {
+
+          Notification.requestPermission();
+
+        }
+
+      }
+
+    });
+
+
+
+    /* Enquiry form */
+
+    document
+      .getElementById("enquiryForm")
+      .addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+
+        const name =
+          document.getElementById("name").value;
+
+
+        const phone =
+          document.getElementById("phone").value;
+
+
+        const interest =
+          document.getElementById("interest").value;
+
+
+        const message =
+          document.getElementById("message").value;
+
+
+
+        /* Browser notification */
+
+        if (
+          "Notification" in window &&
+          Notification.permission === "granted"
+        ) {
+
+          new Notification(
+            "New Family Protection Enquiry",
+            {
+              body:
+                name +
+                " submitted an enquiry. Phone: " +
+                phone
+            }
+          );
+
+        }
+
+
+
+        /* WhatsApp */
+
+        const whatsappMessage =
+
+          "New Enquiry%0A%0A" +
+
+          "Name: " +
+          encodeURIComponent(name) +
+
+          "%0APhone: " +
+          encodeURIComponent(phone) +
+
+          "%0ARequirement: " +
+          encodeURIComponent(interest) +
+
+          "%0AMessage: " +
+          encodeURIComponent(message) +
+
+          "%0A%0AContact: " +
+          "GARIKA MURALI MOHAN- MA . MBA";
+
+
+
+        window.open(
+
+          "https://wa.me/919849400640?text=" +
+          whatsappMessage,
+
+          "_blank"
+
+        );
+
+      });
+
+  </script>
+
+</body>
+</html>
